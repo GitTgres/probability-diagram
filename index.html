@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Graphics - Rust</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="slider.css">
+  </head>
+  <body>
+    <h1 class="bg-indigo-600">sdflakhskdjfasd</h1>
+    <div class="flex flex-row min-h-screen justify-center items-center">
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="400" value="200" class="slider" id="myRange">
+        </div>
+    </div>
+    <script type="module">
+        import init, { start } from './pkg/probability_diagram.js';
+  
+        init()
+        .then(() => {
+            start()
+        });
+    </script>
+  </body>
+</html>

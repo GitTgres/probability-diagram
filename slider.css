@@ -1,0 +1,18 @@
+.slidecontainer {
+    position: absolute;
+    margin-top: 426px;
+
+}
+#myRange {
+    width: 420px;
+    -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    background: #04AA6D; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}

@@ -56,10 +56,20 @@ pub fn start() {
 
         context_clone.begin_path();
         context_clone.set_line_width(3.0);
-        context_clone.rect(2.5,2.5, limit_width(f64::from(slider_value) - 2.5), 400.0 - 5.0);
+        context_clone.rect(2.5,2.5, limit_width_red(f64::from(slider_value) - 2.5), 400.0 - 5.0);
         let color = JsValue::from_str("rgba(255, 0, 0, 0.7)");
         context_clone.set_fill_style(&color);
         context_clone.set_image_smoothing_enabled(false);
+
+        context_clone.fill();
+
+        context_clone.begin_path();
+        context_clone.set_line_width(3.0);
+        context_clone.rect(400.0 - 2.5, 2.5, limit_width_green(f64::from(slider_value - 400) + 2.5), 400.0 - 5.0);
+        let color = JsValue::from_str("rgba(0, 255, 0, 0.7)");
+        context_clone.set_fill_style(&color);
+        context_clone.set_image_smoothing_enabled(false);
+
         context_clone.fill();
 
 
@@ -123,13 +133,26 @@ fn draw_table(context: &CanvasRenderingContext2d)
     context.stroke();
 }
 
-fn limit_width(width: f64) -> f64
+fn limit_width_red(width: f64) -> f64
 {
     if width > 400.0 - 5.0 
     {
         return 400.0 - 5.0;
     }
     else if width < 0.0 
+    {
+        return 0.0;
+    }
+    return width;
+}
+
+fn limit_width_green(width: f64) -> f64
+{
+    if width < -(400.0 - 5.0) 
+    {
+        return -(400.0 - 5.0);
+    }
+    else if width > 0.0 
     {
         return 0.0;
     }
